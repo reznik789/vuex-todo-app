@@ -14,11 +14,22 @@ const actions = {
       "https://cors-anywhere.herokuapp.com/https://jsonplaceholder.typicode.com/todos"
     );
     commit("setTodos", response.data);
+  },
+  addTodo: async ({ commit }, title) => {
+    const response = await axios.post(
+      "https://cors-anywhere.herokuapp.com/https://jsonplaceholder.typicode.com/todos",
+      {
+        title,
+        completed: false
+      }
+    );
+    commit("newTodo", response.data);
   }
 };
 
 const mutations = {
-  setTodos: (state, todos) => (state.todos = todos)
+  setTodos: (state, todos) => (state.todos = todos),
+  newTodo: (state, newTodo) => (state.todos = [newTodo, ...state.todos])
 };
 
 export default {
