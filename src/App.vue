@@ -1,7 +1,9 @@
 <template>
   <div id="app">    
     <Header />
-    <router-view/>
+    <div class="container">
+      <router-view/>
+    </div>
   </div>
 </template>
 
@@ -20,6 +22,7 @@ body {
   font-family: "Franklin Gothic Medium", "Arrial Narrow", Arial, Helvetica, sans-serif;
   line-height: 1.6;
   background: #e8f7f0;
+  margin: 0;
 }
 
 .container {
